@@ -19,6 +19,12 @@ class AnimeStats(commands.Cog):
                         value='Gets a list of most popular animes', inline=False)
         embed.add_field(name='3. **Top Upcoming Animes**',
                         value='Gets a list of top upcoming animes', inline=False)
+        embed.add_field(name='4. **Top Movies**',
+                        value='Gets a list of top movies', inline=False)
+        embed.add_field(name='5. **Top OVAs**',
+                        value='Gets a list of top OVAs(original video animation)', inline=False)
+        embed.add_field(name='6. **Most Favourited**',
+                        value='Gets a list of most favourite animes', inline=False)
         await ctx.send(embed=embed)
 
         def check(reply_user):
@@ -30,7 +36,7 @@ class AnimeStats(commands.Cog):
             await ctx.send('Sorry, you didn\'t reply in time!')
             return
 
-        a = ['airing', 'bypopularity', 'upcoming']
+        a = ['airing', 'bypopularity', 'upcoming','movie','ova','favorite']
         x = int(msg.content)-1
         search_filter = a[x]
 
@@ -53,6 +59,7 @@ class AnimeStats(commands.Cog):
                         s = tag.find('h3')
                         # finds the all the h3 tag
                         anime_name = s.get_text()
+                        # print(anime_name)
                         # gets all text from h3 tags
 
                         a = s.find('a')
